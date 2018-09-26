@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 16:28:34 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/09/26 15:12:27 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/09/26 15:46:23 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char *ft_save(char *str, char *perm)
     i = 0;
     if (ft_checkline(perm))
     {
-        while(perm[i] != '\n')
+        while (perm[i] != '\n')
             i++;
         i++;
         temp = ft_strnew(ft_strlen(&perm[i]) + ft_strlen(str));
@@ -53,7 +53,7 @@ char *ft_save(char *str, char *perm)
     return (temp);
 }
 
-char    *ft_cpy_line(char *dst, char *src, char **perm)
+char *ft_cpy_line(char *dst, char *src, char **perm)
 {
     size_t i;
     size_t len;
@@ -97,14 +97,13 @@ int get_next_line(int fd, char **line)
         buf[ret] = '\0';
         ft_lstaddback(&list, ft_lstnew(buf, ret + 1));
         if (ft_checkline(buf))
-            break ;
+            break;
     }
     if (!list && !perm[0])
-        return(0);
- //   printf("quoi\n");
+        return (0);
     str = ft_list_to_str(list);
- //   printf("oui ?\n");
     *line = ft_cpy_line(*line, str, &perm);
     ft_strdel(&str);
+    ft_lstdel(&list, ft_elemdel);
     return (1);
 }

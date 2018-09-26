@@ -98,5 +98,6 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 char		*ft_list_to_str(t_list *list);
 void		ft_lstaddback(t_list **list, t_list *new);
+void		ft_elemdel(void *content, size_t content_size);
 
 #endif
