@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 16:28:34 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/09/26 15:46:23 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/09/26 21:50:50 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,14 @@ char *ft_save(char *str, char *perm)
         while (perm[i] != '\n')
             i++;
         i++;
-        temp = ft_strnew(ft_strlen(&perm[i]) + ft_strlen(str));
-        temp = ft_strcpy(temp, &perm[i]);
-        temp = ft_strcat(temp, str);
+        temp = ft_strjoin(&perm[i], str);
         return (temp);
     }
     while (str[i + 1] && str[i] != '\n')
         i++;
     i++;
     temp = ft_strdup(&str[i]);
+    free(str);
     return (temp);
 }
 
@@ -63,8 +62,7 @@ char *ft_cpy_line(char *dst, char *src, char **perm)
     {
         while ((*perm)[i] != '\n')
             i++;
-        dst = ft_strnew(i);
-        dst = ft_strncpy(dst, *perm, i);
+        dst = ft_strncpy(ft_strnew(i), *perm, i);
         *perm = ft_save(src, *perm);
         return (dst);
     }
@@ -87,7 +85,6 @@ int get_next_line(int fd, char **line)
     char buf[BUFF_SIZE + 1];
     t_list *list;
     static char *perm = NULL;
-    char *str;
 
     list = NULL;
     while ((ret = read(fd, buf, BUFF_SIZE)))
@@ -101,9 +98,7 @@ int get_next_line(int fd, char **line)
     }
     if (!list && !perm[0])
         return (0);
-    str = ft_list_to_str(list);
-    *line = ft_cpy_line(*line, str, &perm);
-    ft_strdel(&str);
+    *line = ft_cpy_line(*line, ft_list_to_str(list), &perm);
     ft_lstdel(&list, ft_elemdel);
     return (1);
 }
