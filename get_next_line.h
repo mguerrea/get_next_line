@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 19:40:25 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/09/26 14:55:03 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/09/26 16:16:22 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <unistd.h>
 #include "libft.h"
 
-#define BUFF_SIZE 8
+#define BUFF_SIZE 32
 
 int get_next_line(int fd, char **line);
 
