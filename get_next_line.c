@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 16:28:34 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/09/28 16:06:37 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/09/28 16:12:22 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ int get_next_line(int fd, char **line)
     t_list *list;
     static char *perm = NULL;
 
+    if (!line)
+        return (-1);
     list = NULL;
     while ((ret = read(fd, buf, BUFF_SIZE)))
     {
