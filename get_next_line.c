@@ -6,13 +6,11 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 16:28:34 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/09/26 21:50:50 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/09/28 16:06:37 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-#include <stdio.h>
 
 int ft_checkline(char *str)
 {
