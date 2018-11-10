@@ -17,7 +17,7 @@
 #include <sys/uio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "libft.h"
+#include "libft/libft.h"
 
 #define BUFF_SIZE 32
 
