@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/25 19:40:25 by mguerrea          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/11/25 15:53:21 by mguerrea         ###   ########.fr       */
-=======
-/*   Updated: 2018/11/10 16:59:28 by mguerrea         ###   ########.fr       */
->>>>>>> 0b7d525fd7c587b4264e94efaa56c17e88587a4d
+/*   Created: 2018/09/25 19:21:24 by mguerrea          #+#    #+#             */
+/*   Updated: 2018/11/18 12:35:38 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <fcntl.h>
-# include <unistd.h>
-# include "libft/libft.h"
+void	ft_lstaddback(t_list **list, t_list *new)
+{
+	t_list *temp;
 
-# define BUFF_SIZE 32
-
-int get_next_line(int fd, char **line);
-
-#endif
+	if (!list)
+		return ;
+	temp = *list;
+	if (!temp)
+	{
+		*list = new;
+		return ;
+	}
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+}
