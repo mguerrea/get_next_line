@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 16:28:34 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/11/05 17:05:09 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/11/26 18:52:21 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,23 +52,23 @@ int		get_next_line(int fd, char **line)
 	int			ret;
 	char		buf[BUFF_SIZE + 1];
 	t_list		*list;
-	static char	*perm = NULL;
+	static char	*perm[65536];
 
 	if (!line)
-		return (-1);
+		return (ERROR);
 	list = NULL;
 	while ((ret = read(fd, buf, BUFF_SIZE)))
 	{
 		if (ret == -1)
-			return (-1);
+			return (ERROR);
 		buf[ret] = '\0';
 		ft_lstaddback(&list, ft_lstnew(buf, ret + 1));
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
-	if (!list && !perm[0])
-		return (0);
-	*line = ft_cpy_line(*line, ft_list_to_str(list), &perm);
+	if (!list && !perm[fd][0])
+		return (END);
+	*line = ft_cpy_line(*line, ft_list_to_str(list), &perm[fd]);
 	ft_lstdel(&list, ft_elemdel);
-	return (1);
+	return (READ);
 }

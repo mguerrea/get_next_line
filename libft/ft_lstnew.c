@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/30 16:48:50 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/11/05 15:48:43 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/11/26 18:17:26 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	if (content)
 	{
 		if (!(new->content = malloc(content_size)))
+		{
+			free(new);
 			return (NULL);
+		}
 		new->content = ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
 	}

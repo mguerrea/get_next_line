@@ -6,11 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 19:40:25 by mguerrea          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/11/25 15:53:21 by mguerrea         ###   ########.fr       */
-=======
-/*   Updated: 2018/11/10 16:59:28 by mguerrea         ###   ########.fr       */
->>>>>>> 0b7d525fd7c587b4264e94efaa56c17e88587a4d
+/*   Updated: 2018/11/26 18:51:49 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +20,10 @@
 # include "libft/libft.h"
 
 # define BUFF_SIZE 32
+
+# define END 0
+# define READ 1
+# define ERROR -1
 
 int get_next_line(int fd, char **line);
 
