@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/23 16:28:34 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/11/26 18:52:21 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/11/26 19:07:55 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int		get_next_line(int fd, char **line)
 	int			ret;
 	char		buf[BUFF_SIZE + 1];
 	t_list		*list;
-	static char	*perm[65536];
+	static char	*perm[MAX_FD];
 
 	if (!line)
 		return (ERROR);

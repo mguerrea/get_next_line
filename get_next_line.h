@@ -6,7 +6,7 @@
 /*   By: mguerrea <mguerrea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/25 19:40:25 by mguerrea          #+#    #+#             */
-/*   Updated: 2018/11/26 18:51:49 by mguerrea         ###   ########.fr       */
+/*   Updated: 2018/11/26 19:07:16 by mguerrea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # define END 0
 # define READ 1
 # define ERROR -1
+# define MAX_FD 65536
 
 int get_next_line(int fd, char **line);
 
